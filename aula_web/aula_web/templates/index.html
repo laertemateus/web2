@@ -1,0 +1,32 @@
+{% load widget_tweaks %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <div class="container">
+        <h1>Formulário para soma de 2 números</h1>
+        <p>
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label>Número 1</label>
+                    {{ frm.numero1|add_class:'form-control' }}
+                </div>
+
+                <div class="form-group">
+                    <label>Número 2</label>
+                    {{ frm.numero2|add_class:'form-control'}}
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-circle-plus"></i> Somar</button>
+                </div>
+            </form>
+        </p>
+    </div>
+    </body>
+</html>
