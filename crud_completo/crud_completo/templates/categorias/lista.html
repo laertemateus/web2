@@ -1,0 +1,37 @@
+{% extends 'home.html' %}
+
+{% block conteudo %}
+    <h1>Lista de categorias cadastradas</h1>
+
+    <p>
+        <a href="{% url 'categorias.criar' %}" class="btn btn-success">
+            <i class="fa fa-plus"></i> Cadastrar categoria
+        </a>
+    </p>
+
+    <table class="table table-hover table-sm">
+        <tr>
+            <th>Nome</th>
+            <th style="width:1px;white-space: nowrap;">Ações</th>
+        </tr>
+
+        {% for c in categorias %}
+            <tr>
+                <td>{{ c.nome }}</td>
+                <td style="width:1px;white-space: nowrap;">
+                    <a href="{% url 'categorias.editar' c.id %}" class="btn btn-sm btn-warning" title="Editar categoria">
+                        <i class="fa fa-edit"></i>
+                    </a>
+
+                    <a href="{% url 'categorias.excluir' c.id %}" class="btn btn-sm btn-danger" title="Excluir" onclick="return confirm('Deseja realmente excluir {{ c.nome|escapejs }}?')">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <p>
+        <a href="{% url 'home' %}">Retornar à página principal</a>
+    </p>
+{% endblock %}

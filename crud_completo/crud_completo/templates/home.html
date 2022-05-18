@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>Sistema de cadastro de produtos e categorias</h1>
+
+<p>
+    <a href="{% url 'categorias' %}">Categorias</a>
+</p>
+
+<p>
+    <a href="{% url 'produtos' %}">Produtos</a>
+</p>
+
+{% endblock %}
